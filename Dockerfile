@@ -23,4 +23,4 @@ COPY --from=build /app/target/NiwemutoniAnneDivine_Ecommerce_Project-0.0.1-SNAPS
 EXPOSE 8080
 
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar","app.jar"]
