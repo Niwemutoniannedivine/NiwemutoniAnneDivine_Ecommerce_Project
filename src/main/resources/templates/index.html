@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+    <style>
+        /* Custom CSS for E-commerce template */
+
+        /* Navbar */
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand img {
+            max-height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Card */
+        .card {
+            border: none;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .card-body {
+            background-color: gray;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333333;
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+
+        /* Product Card */
+        .card-img-top {
+            height: 200px; /* Adjust image height */
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+    <title>ELECTRONIC DEVICES</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img th:src="@{/images/logo.png}" src="../static/images/logo.png" width="auto" height="40"
+                 class="d-inline-block align-top" alt=""/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}" href="#">home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/shop}" href="#">shop</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">login</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" onclick="logout()">Logout</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/cart}" href="#">cart</a>
+                </li>
+                <li class="nav-item active">
+                    <span class="nav-link" th:text="${cartCount}">0</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Static Content Section -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img th:src="@{/productImages/ecommerce1.jpg}" src="../static/productImages/ecommerce1.jpg" width="auto" height="400"/>
+        </div>
+        <div class="col-md-6">
+            <h2>ABOUT US and Product</h2>
+            <p>Welcome to our online marketplace, where convenience meets quality! At BYOSE E_commerce Shop, we pride
+                ourselves on offering an extensive selection of products tailored to suit your lifestyle needs.
+
+                Explore our vast array of products ranging from the latest tech gadgets to fashionable apparel,
+                exquisite home decor, and everything in between. Whether you're seeking the perfect gift for a loved
+                one or treating yourself to something special, we've got you covered.
+
+                Browse through curated collections, read detailed product descriptions, and compare prices effortlessly.
+                With secure payment options and swift delivery services, shopping with us is not just convenient but
+                also worry-free.
+
+
+                Shop smart, shop confidently, and elevate your shopping experience with BYOSE E_commerce Shop. Welcome
+                to the future of online shopping!</p>
+            <a href="/login" class="btn btn-primary">View all Products</a>
+        </div>
+    </div>
+</div>
+
+<!-- Product Listing Section -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Trailer of Available Products in our stock</h2>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img th:src="@{/productImages/fri5.jpg}" src="../static/productImages/fri5.jpg" width="auto" height="300"/>
+                <div class="card-body">
+                    <h5 class="card-title">fridge</h5>
+                    <p class="card-text">Medium in size</p>
+                    <p class="card-text">Price: $2500</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img th:src="@{/productImages/dress.jpeg}" src="../static/productImages/dress.jpeg" width="auto" height="300"/>
+                <div class="card-body">
+                    <h5 class="card-title">dress</h5>
+                    <p class="card-text">First quality</p>
+                    <p class="card-text">Price: $500</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img th:src="@{/productImages/food3.jpeg}" src="../static/productImages/food3.jpeg" width="auto" height="300"/>
+                <div class="card-body">
+                    <h5 class="card-title">mixed vegetable</h5>
+                    <p class="card-text">Wonderfull one with vegetables </p>
+                    <p class="card-text">Price: $2000</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img th:src="@{/productImages/food2.webp}" src="../static/productImages/food2.webp" width="auto" height="300"/>
+                <div class="card-body">
+                    <h5 class="card-title">chicken</h5>
+                    <p class="card-text">Wonderfull one </p>
+                    <p class="card-text">Price: $1000</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img th:src="@{/productImages/water1.jpg}" src="../static/productImages/water1.jpg" width="auto" height="300"/>
+                <div class="card-body">
+                    <h5 class="card-title">water dispanser</h5>
+                    <p class="card-text">large in size</p>
+                    <p class="card-text">Price: $2500</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat for other products -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img th:src="@{/productImages/v8.jpeg}" src="../static/productImages/v8.jpeg" width="auto" height="300"/>
+                <div class="card-body">
+                    <h5 class="card-title">v8 car</h5>
+                    <p class="card-text">black color </p>
+                    <p class="card-text">Price: $10000</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+
+
+</body>
+<script>
+    function logout() {
+        window.location.href = '/login'; // Redirect to the login page
+    }
+</script>
+
+
+
+
+
+</html>

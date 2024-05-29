@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>payment Confirmation</title>
+  <!-- Include Bootstrap CSS if needed -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .card-body {
+      padding: 30px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      color: #333;
+    }
+
+    .card-text {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .list-group-item {
+      font-size: 16px;
+      color: #777;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Payment Confirmation</h5>
+          <p class="card-text">Thank you for your purchase!</p>
+          <a href="/shop" class="btn btn-primary mr-2">Back to Shop</a>
+          <button class="btn btn-danger" onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Include Bootstrap JS if needed -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script>
+  function logout() {
+    window.location.href = '/login'; // Redirect to the login page
+  }
+</script>
+</body>
+</html>
